@@ -1,4 +1,4 @@
-FROM profideo/apache-php54
+FROM profideo/php54-apache
 
 MAINTAINER Alban Duval <aduval@profideo.com>
 
