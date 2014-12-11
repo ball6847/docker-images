@@ -13,5 +13,6 @@ RUN apt-get install nodejs npm -qq -u -y
 RUN mkdir -p /home/profideo/.npm
 RUN chown -R profideo /home/profideo/.npm
 RUN npm install -g less
+RUN npm install -g bower
 
 
