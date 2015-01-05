@@ -6,6 +6,7 @@ MAINTAINER Alban Duval <aduval@profideo.com>
 RUN apt-get install -y imagemagick
 RUN apt-get install -y librsvg2-2 librsvg2-bin librsvg2-dbg
 RUN apt-get install -y libmagickcore5 libmagickcore5-extra libmagickcore5 libmagickcore5-extra
+RUN apt-get install -y mysql-client
 
 COPY ./files/achillefy-regular_l-webfont.ttf /usr/share/fonts/achillefy-regular_l-webfont.ttf
 COPY ./files/type-achille.xml /etc/ImageMagick/type-achille.xml
