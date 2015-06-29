@@ -13,6 +13,8 @@ RUN apt-get update
 # install apache
 RUN apt-get install -y apache2
 RUN apt-get install -y libapache2-mod-php5
+RUN apt-get install mysql-server -qq -u -y
+RUN apt-get install mysql-client -qq -u -y
 RUN a2enmod rewrite
 RUN echo "umask 002" >> /etc/apache2/envvars
 
