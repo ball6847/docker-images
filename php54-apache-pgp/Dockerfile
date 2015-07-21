@@ -11,4 +11,3 @@ RUN apt-get install bzip2 -qq -u -y
 
 # Install client php mongodb
 RUN apt-get -t wheezy-backports install php5-mongo -qq -u -y
-#RUN apt-get install php5-mongo -qq -u -y
