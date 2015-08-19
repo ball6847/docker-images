@@ -5,7 +5,7 @@ MAINTAINER Porawit Poboonma <ball6847@gmail.com>
 RUN apt-get update
 RUN apt-get upgrade -y
 
-RUN apt-get -y install mysql-client mysql-server
+RUN apt-get -y install mysql-client mysql-server phpmyadmin
 
 RUN useradd -u 9876 mysql-user
 
@@ -13,6 +13,16 @@ RUN mv /etc/mysql/conf.d/mysqld_safe_syslog.cnf /etc/mysql/conf.d/mysqld_safe_lo
 RUN mkdir -p /opt/mysql/mysqld
 RUN mkdir -p /opt/mysql/logging
 RUN chown mysql-user:root /opt/mysql/
+
+# setup phpmyadmin
+RUN ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf.d/phpmyadmin.conf
+RUN sed -i -re"s/dbuser='[^']+'/dbuser='root'/" /etc/phpmyadmin/config-db.php
+RUN sed -i -re"s/dbpass='[^']+'/dbuser=''/" /etc/phpmyadmin/config-db.php
+RUN sed -i -re"s/dbserver='[^']*'/dbserver='127.0.0.1'/" /etc/phpmyadmin/config-db.php
+RUN sed -i -re"s/dbport='[^']*'/dbport='3306'/" /etc/phpmyadmin/config-db.php
+RUN sed -i -re"s/\/\/\s(.*?AllowNoPassword)/\1/" /etc/phpmyadmin/config.inc.php
+RUN sed -i -re"s/'cookie'/'config'/" /etc/phpmyadmin/config.inc.php
+
 
 # actually this should be done in profideo/php52-apache but it do not own the repository
 # may working on my own image later
