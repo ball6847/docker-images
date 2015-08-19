@@ -23,3 +23,5 @@ RUN apt-get install -y libapache2-mod-php5
 RUN usermod -a -G www-data profideo
 
 EXPOSE 80 443
+
+CMD /usr/sbin/apache2ctl -D FOREGROUND
