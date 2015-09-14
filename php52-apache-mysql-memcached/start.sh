@@ -19,4 +19,4 @@ docker run -d \
     -v ~/mysql/data/:/var/lib/mysql/ \
     -v ~/mysql/mysqld/:/opt/mysql/mysqld/ \
     -v ~/mysql/logs/:/opt/mysql/logging/ \
-    ball6847/php52-apache-mysql
+    ball6847/php52-apache-mysql-memcached
